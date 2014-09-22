@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: p2 Server UI
+Bundle-SymbolicName: com.runolarity.p2.server.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Runolarity
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
