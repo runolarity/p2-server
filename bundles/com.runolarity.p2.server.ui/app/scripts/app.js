@@ -10,12 +10,14 @@
  */
 angular
   .module('p2ServerUiApp', [
+    'config',
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angulartics', 'angulartics.google.analytics'
   ])
   .config(function ($routeProvider) {
     $routeProvider

@@ -384,7 +384,35 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Environment specific settings (development vs. production)
+    ngconstant: {
+      options: {
+        space: '  ',
+        dest: '.tmp/scripts/config.js',
+        name: 'config',
+        constants: { // defaults
+          GoogleAnalyticsCode: false
+        }
+      },
+      // Environment specific constants 
+      development: {
+        constants: {
+          ENV: 'development'
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/config.js',
+        },
+        constants: {
+          ENV: 'production',
+          GoogleAnalyticsCode: 'UA-55038413-2'
+        }
+      }
     }
+
   });
 
 
@@ -395,6 +423,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -418,6 +447,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
