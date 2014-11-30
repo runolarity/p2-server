@@ -15,12 +15,24 @@ Given an URL to a remote p2 repository, the p2 Server can create a local mirror.
 Simple as well as composite repository shall be supported as remote repositories. All artifacts and all metadata available in the remote p2 repository will be made available on the p2 Server under a given URL. The data shall be stored locally so that it is available in case the remote repository is offline. The mirroring operation will be performed asynchronously. It can be triggered manually, scheduled to occur at a specified time (cron expression) and/or based on events triggered by a web hook to allow integration with 3rd party systems.
 
 
+1a. Complete Mirroring
+----------------------
+
+All artifacts and all metadata of installable units (IUs) are mirrored. This is the default case. 
+
+
+1b. Selective Mirroring
+-----------------------
+
+It shall be possible to select the IUs to mirror. To enable selective mirroring one or more p2 queries may be defined which will select the IUs to mirror.
+
+
 2. Deployment of p2 repositories with Maven Tycho
 -------------------------------------------------
 
 Using 'mvn deploy' it shall be possible to deploy Tycho based p2 repository Maven module projects.
 
-The p2 repository will be made available on the p2 Server under a given URL. At the main repository URL a composite repository shall be made available which exposes an aggregated view over every deployed repository version. A lightwight approval process supports staging of new uploads for review. The p2 Server must allow to configure whether only 'approved' versions will be made available in the composite repository or every deployed version. 
+The p2 repository will be made available on the p2 Server under a given URL. At the main repository URL a p2 repository shall be made available which exposes an aggregated view over every deployed repository version. A lightwight approval process supports staging of new uploads for review. The p2 Server must allow to configure whether only 'approved' versions will be made available in the repository or every deployed version. 
 
 The p2 Server should allow tagging for specific repository versions. Deep linking techniques allow access to a specific version, a tagged version as well as the latest 'approved' and the latest 'deployed' ('uploaded') version. 
 
