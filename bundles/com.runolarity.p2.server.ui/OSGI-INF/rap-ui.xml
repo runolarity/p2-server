@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="com.runolarity.p2.server.ui.rap.application.component">
+   <implementation class="com.runolarity.p2.server.ui.internal.application.P2ServerUiApplicationProvider"/>
+   <property name="service.vendor" type="String" value="p2 Server"/>
+   <property name="service.description" type="String" value="p2 Server UI"/>
+   <property name="automount.url" type="String" value="http:/"/>
+   <service>
+      <provide interface="org.eclipse.gyrex.http.application.provider.ApplicationProvider"/>
+   </service>
+</scr:component>
